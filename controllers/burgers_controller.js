@@ -18,9 +18,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   burger.create([
-    "name", "devoured"
+    "burger_name", "devoured"
   ], [
-    req.body.name, req.body.devoured
+    req.body.burger_name, req.body.devoured
   ], function() {
     res.redirect("/");
   });
@@ -37,7 +37,6 @@ router.put("/:id", function(req, res) {
     res.redirect("/");
   });
 });
-
 
 // Export routes for server.js to use.
 module.exports = router;

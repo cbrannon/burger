@@ -1,23 +1,28 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const methodOverride = require("method-override");
-const exphbs = require("express-handlebars");
-const app = express();
-const PORT = 8080;
+var express = require("express");
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
-require("./controllers/burgers_controller")();
+var port = 8080;
 
-app.use(express.static(__dirname + "/public"));
+var app = express();
 
-// Parse application/x-www-form-urlencoded
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(process.cwd() + "/public"));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.listen(PORT, function() {
-    console.log("Listening on port: " + PORT);
-});
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
+
+app.use("/", routes);
+
+app.listen(port);
