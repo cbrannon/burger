@@ -9,7 +9,7 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.all(function(data) {
     var hbsObject = {
-      burger: data
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -18,9 +18,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   burger.create([
-    "burger_name", "devoured"
+    "burger_name"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.burger_name
   ], function() {
     res.redirect("/");
   });
@@ -32,7 +32,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    devoured: req.body.devoured
+    devoured: true
   }, condition, function() {
     res.redirect("/");
   });
