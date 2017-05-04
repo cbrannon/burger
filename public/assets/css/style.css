@@ -1,0 +1,25 @@
+/********** Layout **********/
+img {
+    width: 400px;
+}
+
+#burgerInput {
+    display: block;
+    margin: 40px auto;
+    width: 280px;
+    min-width: 270px;
+}
+
+.lists {
+    margin: 40px auto;
+}
+
+li {
+    list-style-type: none;
+}
+/******* Colors ***********/
+body {
+    background-color: rgb(252, 247, 225);
+}
+
+
