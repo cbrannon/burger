@@ -5,17 +5,20 @@ img {
 
 #burgerInput {
     display: block;
-    margin: 40px auto;
+    margin: 20px auto;
     width: 280px;
-    min-width: 270px;
 }
 
 .lists {
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
-li {
-    list-style-type: none;
+#burgers {
+    display: block;
+}
+
+#devour {
+    display: inline;
 }
 /******* Colors ***********/
 body {

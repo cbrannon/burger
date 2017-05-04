@@ -14,19 +14,19 @@
 </div>
 
 <div class="col-xs-12 col-md-4 col-md-pull-4 lists text-center">
-  <ul>
+  <div id="burgers">
     {{#each burgers}}
       {{#unless this.devoured}}
-        <li>
-          {{this.burger_name}}
+  
+          <h3>{{this.burger_name}}</h3>
 
-          <form action="/{{this.id}}?_method=PUT" method="POST">
-            <button type="submit">Devour!</button>
+          <form action="/{{this.id}}?_method=PUT" method="POST"  id="devour">
+            <button type="submit" class="btn btn-danger">Devour!</button>
           </form>
-        </li>
+
       {{/unless}}
     {{/each}}
-  </ul>
+  </div>
 </div>
 
 
